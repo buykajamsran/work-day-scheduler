@@ -1,9 +1,10 @@
+// Current date is displayed
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
 
 $(document).ready( function() {
     timeblockColor ();
 });
-
+// Timeblock color change funtion
 function timeblockColor () {
 
     var currentHour = moment().hours();
@@ -30,7 +31,7 @@ function timeblockColor () {
         }
     });
 }
-
+// Save button funtion
 $(".saveBtn").click(function() {
     eventText = $(this).siblings(".input").val();
     console.log(eventText);
@@ -38,7 +39,7 @@ $(".saveBtn").click(function() {
     console.log(eventTime);
     localStorage.setItem(eventTime, JSON.stringify(eventText));
 });
-
+// Delete button funtion
   $(".deleteBtn").click(function() {
         eventText = $(this).siblings(".input").val("");
         eventText = $(this).siblings(".input").val();
