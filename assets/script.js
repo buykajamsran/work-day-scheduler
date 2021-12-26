@@ -1,5 +1,36 @@
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY'));
 
+$(document).ready( function() {
+    timeblockColor ();
+});
+
+function timeblockColor () {
+
+    var currentHour = moment().hours();
+    console.log(currentHour);
+
+    $(".input").each(function() {
+        var hours = parseInt($(this).attr("id"));
+        console.log(hours);
+
+        if (currentHour > hours) {
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+            $(this).addClass("past");
+        }
+        else if (currentHour < hours) {
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+        }
+        else {
+            $(this).removeClass("future");
+            $(this).removeClass("past");
+            $(this).addClass("present");
+        }
+    });
+}
+
 $(".saveBtn").click(function() {
     eventText = $(this).siblings(".input").val();
     console.log(eventText);
